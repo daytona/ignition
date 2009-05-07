@@ -1,0 +1,83 @@
+Ignition - JavaScript MVC Framework
+===============================
+
+Ignition is a [jQuery](http://jquery.com)-based mini-framework for developing JavaScript applications using the MVC (Model/View/Controller) pattern.
+
+Ignition is extendable through "Modules", which in the default distribution includes a URL manager and a history dispatcher (for triggering events when the location hash changes.)
+
+
+Basic usage
+-----------
+
+Please see the [API documentation](http://www.daytona.se/ignition/docs) for detailed usage.
+
+Initialize the Ignition object:
+
+    var $i = new Ignition({ modules: ['UrlManager', 'HistoryDispatcher'] });
+
+Add a location hash match to the history dispatcher, for `#articles/1` (where `1` is an arbitrary Article ID):
+
+    $i.addRoute('articles/(\d+)', function(article_id) {
+      $i.c.Articles.show(article_id);
+    });
+
+Add a JSON URL to the URL manager, for getting Article information:
+
+    $i.addUrl('article', '/articles/:id.json');
+
+Create an Article model, extending the base Model object:
+
+The Model will handle the fetching of data, using the `.json` method from the base object.
+
+    $i.m('Article', {
+      find_by_id: function(id, callback) {
+        this.json($i.getUrl('article', { id: id }), { success: callback });
+      }
+    });
+
+Create an Articles controller, extending the base Controller object:
+
+The controller will handle events, in this case a change in the location hash.
+
+    $i.c('Articles', {
+      show: function(id) {
+        $i.m.Article.find_by_id(id, $i.v.Articles.show);
+      }
+    });
+
+Create an Articles view, extending the base View object:
+
+The view will handle the data returned from the model's JSON call, generating DOM elements and inserting them into the document.
+
+    $i.v('Articles', {
+      show: function(data) {
+        var list = $('<ul id="articles"></ul>');
+        for (var i = 0; i < data.articles.length; i++) {
+          var article = data.articles[i];
+          var listItem = $('<li><a href="'+article.url+'">'+article.title+'</a></li>');
+          list.append(listItem);
+        }
+
+        $('body').append(list);
+      }
+    });
+
+
+License
+-------
+
+Ignition is dual licensed under the MIT and GPL licenses.
+
+
+More information
+----------------
+
+Ignition was inspired by [Jamal](http://jamal-mvc.com/), but was written using original code. It was originally developed for use in various internal projects by [Daytona Communication AB](http://www.daytona.se), a digital communications agency in Stockholm, Sweden.
+
+For more information, API documentation and end-user downloads, please see the [project page](http://www.daytona.se/ignition) at Daytona.se.
+
+
+Author
+------
+
+* Johan Sahlén <johan.sahlen@daytona.se> / <johan.sahlen@gmail.com>
