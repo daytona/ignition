@@ -66,7 +66,7 @@ The view will handle the data returned from the model's JSON call, generating DO
 License
 -------
 
-Ignition is dual licensed under the MIT and GPL licenses.
+Ignition is dual licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) and [GPL](http://www.gnu.org/licenses/gpl-3.0.txt) licenses.
 
 
 More information
