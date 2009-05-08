@@ -1,0 +1,140 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span>  * The base class constructor.
+<span class='line'>  3</span>  * You can specify Modules to load for the resulting object.
+<span class='line'>  4</span>  *
+<span class='line'>  5</span>  * @example var $i = new Ignition({ modules: ['UrlManager', 'HistoryDispatcher'] });
+<span class='line'>  6</span>  *
+<span class='line'>  7</span>  * @class The main class is intended to be instantiated as a 'wrapper' object,
+<span class='line'>  8</span>  * which you would then use to work with your models, views and controllers.
+<span class='line'>  9</span>  * &lt;br/>&lt;br/>
+<span class='line'> 10</span>  * You can use Modules (the built-in
+<span class='line'> 11</span>  * &lt;code>{@link Ignition.Modules.UrlManager}&lt;/code> and
+<span class='line'> 12</span>  * &lt;code>{@link Ignition.Modules.HistoryDispatcher}&lt;/code>) to get some, for these
+<span class='line'> 13</span>  * kinds of XHR applications, commonly needed functionality for your
+<span class='line'> 14</span>  * Ignition-based app.
+<span class='line'> 15</span>  * &lt;br/>&lt;br/>
+<span class='line'> 16</span>  * Usage information can be found at
+<span class='line'> 17</span>  * &lt;a href="http://wiki.github.com/daytona/ignition">http://wiki.github.com/daytona/ignition&lt;/a>
+<span class='line'> 18</span>  *
+<span class='line'> 19</span>  * @constructor
+<span class='line'> 20</span>  * @param [options] A object of options
+<span class='line'> 21</span>  * @param {Array} options.modules An array of modules to load for the resulting Object
+<span class='line'> 22</span>  */</span><span class="WHIT">
+<span class='line'> 23</span> </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">Ignition</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">window.Ignition</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 24</span> </span><span class="WHIT">  </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">options</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">$.extend</span><span class="PUNC">(</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 25</span> </span><span class="WHIT">    </span><span class="NAME">modules</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="WHIT">
+<span class='line'> 26</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 27</span> 
+<span class='line'> 28</span> </span><span class="WHIT">  </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">options.modules.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 29</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">module</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">options.modules</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 30</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">Ignition.Modules</span><span class="PUNC">[</span><span class="NAME">module</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">Ignition.Modules</span><span class="PUNC">[</span><span class="NAME">module</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">addTo</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">'function'</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="NAME">Ignition.Modules</span><span class="PUNC">[</span><span class="NAME">module</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">addTo</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 32</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 33</span> 
+<span class='line'> 34</span> </span><span class="COMM">/**
+<span class='line'> 35</span>  * A map of the available Modules to load for an Ignition Object
+<span class='line'> 36</span>  * @property
+<span class='line'> 37</span>  */</span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="NAME">Ignition.Modules</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 39</span> 
+<span class='line'> 40</span> </span><span class="NAME">Ignition.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 41</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 42</span>    * A map of the available Models
+<span class='line'> 43</span>    * @property
+<span class='line'> 44</span>    */</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="WHIT">  </span><span class="NAME">m</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 46</span> 
+<span class='line'> 47</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 48</span>    * A map of the available Views
+<span class='line'> 49</span>    * @property
+<span class='line'> 50</span>    */</span><span class="WHIT">
+<span class='line'> 51</span> </span><span class="WHIT">  </span><span class="NAME">v</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 52</span> 
+<span class='line'> 53</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 54</span>    * A map of the available Controllers
+<span class='line'> 55</span>    * @property
+<span class='line'> 56</span>    */</span><span class="WHIT">
+<span class='line'> 57</span> </span><span class="WHIT">  </span><span class="NAME">c</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 58</span> 
+<span class='line'> 59</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 60</span>    * Add a new Model. An optional collection of methods
+<span class='line'> 61</span>    * will be used to extend the base Model with &lt;code>jQuery.extend()&lt;/code>.
+<span class='line'> 62</span>    *
+<span class='line'> 63</span>    * @example $i.m('MyModel', {
+<span class='line'> 64</span>    *   load: function(callback) {
+<span class='line'> 65</span>    *     // Load some content and peform the callback method
+<span class='line'> 66</span>    *   },
+<span class='line'> 67</span>    *   beforeSend: function() {
+<span class='line'> 68</span>    *     // Overwriting the base Model's default beforeSend method
+<span class='line'> 69</span>    *   }
+<span class='line'> 70</span>    * });
+<span class='line'> 71</span>    *
+<span class='line'> 72</span>    * @example // Calling:
+<span class='line'> 73</span>    * $i.m.MyModel.load();
+<span class='line'> 74</span>    *
+<span class='line'> 75</span>    * @param {String} name The name of the new Model
+<span class='line'> 76</span>    * @param {Object} [methods] A collection of methods to extend the base Model with
+<span class='line'> 77</span>    *
+<span class='line'> 78</span>    * @returns {Ignition.Model}
+<span class='line'> 79</span>    */</span><span class="WHIT">
+<span class='line'> 80</span> </span><span class="WHIT">  </span><span class="NAME">m</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">name</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">methods</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="WHIT">    </span><span class="NAME">this.m</span><span class="PUNC">[</span><span class="NAME">name</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Ignition.Model</span><span class="PUNC">(</span><span class="NAME">methods</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 82</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.m</span><span class="PUNC">[</span><span class="NAME">name</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 83</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 84</span> 
+<span class='line'> 85</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 86</span>    * Add a new View. An optional collection of methods
+<span class='line'> 87</span>    * will be used to extend the base View with &lt;code>jQuery.extend()&lt;/code>.
+<span class='line'> 88</span>    *
+<span class='line'> 89</span>    * @example $i.v('MyView', {
+<span class='line'> 90</span>    *   index: function(data) {
+<span class='line'> 91</span>    *     // Generate DOM elements based on data
+<span class='line'> 92</span>    *   }
+<span class='line'> 93</span>    * });
+<span class='line'> 94</span>    *
+<span class='line'> 95</span>    * @example // Calling:
+<span class='line'> 96</span>    * $i.v.MyView.index(data);
+<span class='line'> 97</span>    *
+<span class='line'> 98</span>    * @param {String} name The name of the new View
+<span class='line'> 99</span>    * @param {Object} [methods] A collection of methods to extend the base View with
+<span class='line'>100</span>    *
+<span class='line'>101</span>    * @returns {Ignition.View}
+<span class='line'>102</span>    */</span><span class="WHIT">
+<span class='line'>103</span> </span><span class="WHIT">  </span><span class="NAME">v</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">name</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">methods</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>104</span> </span><span class="WHIT">    </span><span class="NAME">this.v</span><span class="PUNC">[</span><span class="NAME">name</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Ignition.View</span><span class="PUNC">(</span><span class="NAME">methods</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>105</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.v</span><span class="PUNC">[</span><span class="NAME">name</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>106</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>107</span> 
+<span class='line'>108</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'>109</span>    * Add a new Controller. An optional collection of
+<span class='line'>110</span>    * methods will be used to extend the base Controller with &lt;code>jQuery.extend()&lt;/code>.
+<span class='line'>111</span>    *
+<span class='line'>112</span>    * @example $i.c('MyController', {
+<span class='line'>113</span>    *   index: function() {
+<span class='line'>114</span>    *     // Load some data with MyModel, and present it using MyView:
+<span class='line'>115</span>    *     $i.m.MyModel.load($i.v.MyView.index);
+<span class='line'>116</span>    *   }
+<span class='line'>117</span>    * });
+<span class='line'>118</span>    *
+<span class='line'>119</span>    * @example // Calling:
+<span class='line'>120</span>    * $i.c.MyController.index();
+<span class='line'>121</span>    *
+<span class='line'>122</span>    * @param {String} name The name of the new Controller
+<span class='line'>123</span>    * @param {Object} [methods] A collection of methods to extend the base Controller with
+<span class='line'>124</span>    *
+<span class='line'>125</span>    * @returns {Ignition.Controller}
+<span class='line'>126</span>    */</span><span class="WHIT">
+<span class='line'>127</span> </span><span class="WHIT">  </span><span class="NAME">c</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">name</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">methods</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>128</span> </span><span class="WHIT">    </span><span class="NAME">this.c</span><span class="PUNC">[</span><span class="NAME">name</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Ignition.Controller</span><span class="PUNC">(</span><span class="NAME">name</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">methods</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>129</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.c</span><span class="PUNC">[</span><span class="NAME">name</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>130</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>131</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>132</span> 
+<span class='line'>133</span> </span></pre></body></html>

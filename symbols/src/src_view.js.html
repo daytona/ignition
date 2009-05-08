@@ -1,0 +1,36 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span>  * Base View class. This is used to create all Views for
+<span class='line'>  3</span>  * {@link Ignition} Objects. If you want, you can extend the base View using
+<span class='line'>  4</span>  * &lt;code>jQuery.extend()&lt;/code>.
+<span class='line'>  5</span>  *
+<span class='line'>  6</span>  * @example $i.m.MyView = new Ignition.View({
+<span class='line'>  7</span>  *   index: function(data) {
+<span class='line'>  8</span>  *     // // Generate DOM elements based on data
+<span class='line'>  9</span>  *   }
+<span class='line'> 10</span>  * });
+<span class='line'> 11</span>  *
+<span class='line'> 12</span>  * @example // Calling:
+<span class='line'> 13</span>  * $i.m.MyView.index();
+<span class='line'> 14</span>  *
+<span class='line'> 15</span>  * @example // Extend the base View:
+<span class='line'> 16</span>  * jQuery.extend(Ignition.View.prototype, {
+<span class='line'> 17</span>  *   myCustomMethod: function() {
+<span class='line'> 18</span>  *     alert('This method will be available for all Views.');
+<span class='line'> 19</span>  *   }
+<span class='line'> 20</span>  * });
+<span class='line'> 21</span>  *
+<span class='line'> 22</span>  * @constructor
+<span class='line'> 23</span>  * @param {Object} [methods] A collection of methods to extend the base View with
+<span class='line'> 24</span>  */</span><span class="WHIT">
+<span class='line'> 25</span> </span><span class="NAME">Ignition.View</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">methods</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 26</span> </span><span class="WHIT">  </span><span class="NAME">$.extend</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">methods</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 27</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 28</span> 
+<span class='line'> 29</span> </span></pre></body></html>

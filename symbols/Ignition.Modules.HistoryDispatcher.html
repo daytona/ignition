@@ -1,0 +1,754 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - Ignition.Modules.HistoryDispatcher</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a>
+| <a href="../files.html">File Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/Ignition.html">Ignition</a></li>
+	
+	<li><a href="../symbols/Ignition.Controller.html">Ignition.Controller</a></li>
+	
+	<li><a href="../symbols/Ignition.Model.html">Ignition.Model</a></li>
+	
+	<li><a href="../symbols/Ignition.Modules.HistoryDispatcher.html">Ignition.Modules.HistoryDispatcher</a></li>
+	
+	<li><a href="../symbols/Ignition.Modules.UrlManager.html">Ignition.Modules.UrlManager</a></li>
+	
+	<li><a href="../symbols/Ignition.View.html">Ignition.View</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class Ignition.Modules.HistoryDispatcher
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+			
+				This class makes it possible to watch
+the <code>window.location.hash</code> for changes, performing custom
+actions when specific patterns are matched. This could potentially be used,
+without modifications, independently of the Ignition framework aswell.
+				
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/src_modules_historydispatcher.js.html">historydispatcher.js</a>.
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Ignition.Modules.HistoryDispatcher.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/Ignition.Modules.HistoryDispatcher.html">Ignition.Modules.HistoryDispatcher</a></b>(options)
+							</div>
+							<div class="description">Create DOM elements and start timers.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class Ignition.Modules.HistoryDispatcher.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/Ignition.Modules.HistoryDispatcher.html#iframe">iframe</a></b>
+								</div>
+								<div class="description">A reference to the DOM element of the generated iframe (if on IE).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/Ignition.Modules.HistoryDispatcher.html#iframetimer">iframetimer</a></b>
+								</div>
+								<div class="description">A timer that watches the iframe for changes (if on IE).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/Ignition.Modules.HistoryDispatcher.html#routes">routes</a></b>
+								</div>
+								<div class="description">A map of the current routes that have been added to the object.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/Ignition.Modules.HistoryDispatcher.html#timer">timer</a></b>
+								</div>
+								<div class="description">An Interval that checks if the location Hash has changed.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Ignition.Modules.HistoryDispatcher.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Ignition.Modules.HistoryDispatcher.html#addRoute">addRoute</a></b>(pattern, action)
+								</div>
+								<div class="description">Add a new route.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Ignition.Modules.HistoryDispatcher.<b><a href="../symbols/Ignition.Modules.HistoryDispatcher.html#.addTo">addTo</a></b>(object)
+								</div>
+								<div class="description">Adds a HistoryDispatcher to the specified (<a href="../symbols/Ignition.html">Ignition</a>) object.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Ignition.Modules.HistoryDispatcher.<b><a href="../symbols/Ignition.Modules.HistoryDispatcher.html#.cleanHash">cleanHash</a></b>(hash)
+								</div>
+								<div class="description">Clean a <code>window.location.hash</code> string.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Ignition.Modules.HistoryDispatcher.html#disengage">disengage</a></b>()
+								</div>
+								<div class="description">Stop watching for history changes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Ignition.Modules.HistoryDispatcher.html#go">go</a></b>(hash)
+								</div>
+								<div class="description">Go to a hash of your choice.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>Ignition.Modules.HistoryDispatcher</b>(options)
+				</div>
+				
+				<div class="description">
+					Create DOM elements and start timers. An iframe is created if the user is
+using IE, to support detection of back/forward navigation. Timers to check
+if the window hash (or the iframe contents) have changed, and if so perform
+the specified actions, are set using <code>setInterval()</code>.
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{Object}</span>  <b>options</b>
+								<i>Optional</i>
+							</dt>
+								<dd></dd>
+						
+							<dt>
+								<span class="light fixedFont">{Number}</span>  <b>options.interval</b>
+								<i>Optional, Default: 200</i>
+							</dt>
+								<dd>How often to check the location hash</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="iframe"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>iframe</b>
+					
+					</div>
+					<div class="description">
+						A reference to the DOM element of the generated iframe (if on IE).
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="iframetimer"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>iframetimer</b>
+					
+					</div>
+					<div class="description">
+						A timer that watches the iframe for changes (if on IE).
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="routes"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>routes</b>
+					
+					</div>
+					<div class="description">
+						A map of the current routes that have been added to the object.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="timer"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>timer</b>
+					
+					</div>
+					<div class="description">
+						An Interval that checks if the location Hash has changed.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addRoute"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addRoute</b>(pattern, action)
+					
+					</div>
+					<div class="description">
+						Add a new route. Specifies a pattern to be matched, and an action
+(function) to be called when it is. The pattern can be a RegExp string,
+and will be automatically surrounded by <code>^</code> and <code>$</code>
+notations. RegExp back references will be used as arguments on the
+specified function.
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">// Add a new route to a previously defined HistoryDispatcher object:
+dispatcher.addRoute('posts/(\\d+)', function(id) {
+  alert('Matched post with ID '+id);
+});</pre>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>pattern</b>
+									
+								</dt>
+								<dd>A string, which can be a RegExp string. If so,
+    you need to 'double escape', e.g. <code>"\d"</code> should be written
+    as <code>"\\d"</code>.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Function}</span> <b>action</b>
+									
+								</dt>
+								<dd>The action to be called when the pattern
+    is matched.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".addTo"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Ignition.Modules.HistoryDispatcher.</span><b>addTo</b>(object)
+					
+					</div>
+					<div class="description">
+						Adds a HistoryDispatcher to the specified (<a href="../symbols/Ignition.html">Ignition</a>) object.
+The Dispatcher is assigned to the <code>dispatcher</code> property of the
+object, with aliases to
+<code><a href="../symbols/Ignition.Modules.HistoryDispatcher.html#addRoute">Ignition.Modules.HistoryDispatcher#addRoute</a></code> as
+<code>object.addRoutes</code> and
+<code><a href="../symbols/Ignition.Modules.HistoryDispatcher.html#go">Ignition.Modules.HistoryDispatcher#go</a></code> as
+<code>object.go</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Ignition.html">Ignition</a>}</span> <b>object</b>
+									
+								</dt>
+								<dd>A previously initialised <code>Ignition</code> object.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".cleanHash"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Ignition.Modules.HistoryDispatcher.</span><b>cleanHash</b>(hash)
+					
+					</div>
+					<div class="description">
+						Clean a <code>window.location.hash</code> string. (Remove the '#' prefix.)
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>hash</b>
+									
+								</dt>
+								<dd>A hash string (most probably from <code>window.location.hash</code>)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="disengage"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>disengage</b>()
+					
+					</div>
+					<div class="description">
+						Stop watching for history changes. Stops all timer. Use this if you don't
+want to watch for history changes any more, for example if a page that
+doesn't use the Ignition system is loaded.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="go"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>go</b>(hash)
+					
+					</div>
+					<div class="description">
+						Go to a hash of your choice. The same as clicking a link with
+<code>href="#(hash)"</code>.
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">dispatcher.go('posts/123');</pre>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>hash</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://www.jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 2.1.0 on Fri May 08 2009 14:16:55 GMT+0200 (CEST)
+		</div>
+	</body>
+</html>

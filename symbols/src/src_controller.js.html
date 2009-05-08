@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span>  * Base Controller class. This is used to create all Controllers for
+<span class='line'>  3</span>  * {@link Ignition} Objects. If you want, you can extend the base Controller using
+<span class='line'>  4</span>  * &lt;code>jQuery.extend()&lt;/code>.
+<span class='line'>  5</span>  *
+<span class='line'>  6</span>  * @example $i.m.MyController = new Ignition.Controller({
+<span class='line'>  7</span>  *   index: function() {
+<span class='line'>  8</span>  *     // Load some data with MyModel, and present it using MyView:
+<span class='line'>  9</span>  *     $i.m.MyModel.load($i.v.MyView.index);
+<span class='line'> 10</span>  *   }
+<span class='line'> 11</span>  * });
+<span class='line'> 12</span>  *
+<span class='line'> 13</span>  * @example // Calling:
+<span class='line'> 14</span>  * $i.m.MyView.index();
+<span class='line'> 15</span>  *
+<span class='line'> 16</span>  * @example // Extend the base Controller:
+<span class='line'> 17</span>  * jQuery.extend(Ignition.Controller.prototype, {
+<span class='line'> 18</span>  *   myCustomMethod: function() {
+<span class='line'> 19</span>  *     alert('This method will be available for all Controllers.');
+<span class='line'> 20</span>  *   }
+<span class='line'> 21</span>  * });
+<span class='line'> 22</span>  *
+<span class='line'> 23</span>  * @constructor
+<span class='line'> 24</span>  * @param {Object} [methods] A collection of methods to extend the base Controller with
+<span class='line'> 25</span>  */</span><span class="WHIT">
+<span class='line'> 26</span> </span><span class="NAME">Ignition.Controller</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">name</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">methods</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 27</span> </span><span class="WHIT">  </span><span class="NAME">this.name</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">name</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 28</span> </span><span class="WHIT">  </span><span class="NAME">$.extend</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">methods</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 29</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 30</span> 
+<span class='line'> 31</span> </span></pre></body></html>

@@ -1,0 +1,107 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span>  * Base Model class. This is used to create all Models for
+<span class='line'>  3</span>  * {@link Ignition} Objects. If you want, you can extend the base Model using
+<span class='line'>  4</span>  * &lt;code>jQuery.extend()&lt;/code>.
+<span class='line'>  5</span>  *
+<span class='line'>  6</span>  * @example $i.m.MyModel = new Ignition.Model({
+<span class='line'>  7</span>  *   load: function(callback) {
+<span class='line'>  8</span>  *     // Load some content and peform the callback method
+<span class='line'>  9</span>  *   },
+<span class='line'> 10</span>  *   beforeSend: function() {
+<span class='line'> 11</span>  *     // Overwriting the base Model's default beforeSend method
+<span class='line'> 12</span>  *   }
+<span class='line'> 13</span>  * });
+<span class='line'> 14</span>  *
+<span class='line'> 15</span>  * @example // Calling:
+<span class='line'> 16</span>  * $i.m.MyModel.load();
+<span class='line'> 17</span>  *
+<span class='line'> 18</span>  * @example // Extend the base Model:
+<span class='line'> 19</span>  * jQuery.extend(Ignition.Model.prototype, {
+<span class='line'> 20</span>  *   myCustomMethod: function() {
+<span class='line'> 21</span>  *     alert('This method will be available for all Models.');
+<span class='line'> 22</span>  *   }
+<span class='line'> 23</span>  * });
+<span class='line'> 24</span>  *
+<span class='line'> 25</span>  * @constructor
+<span class='line'> 26</span>  * @param {Object} [methods] A collection of methods to extend the base Model with
+<span class='line'> 27</span>  */</span><span class="WHIT">
+<span class='line'> 28</span> </span><span class="NAME">Ignition.Model</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">methods</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 29</span> </span><span class="WHIT">  </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">methods</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">methods</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">'object'</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 30</span> </span><span class="WHIT">    </span><span class="NAME">Ignition.error</span><span class="PUNC">(</span><span class="STRN">'Model creation error'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 32</span> </span><span class="WHIT">    </span><span class="NAME">$.extend</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">methods</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 33</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 34</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 35</span> 
+<span class='line'> 36</span> </span><span class="NAME">Ignition.Model.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 37</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 38</span>    * Get data from the specified URL as JSON data.
+<span class='line'> 39</span>    * This is a wrapper for jQuery.ajax(), with a pre-set dataType of 'json'.
+<span class='line'> 40</span>    * This method will use the callbacks you specify in the options, if any.
+<span class='line'> 41</span>    * If you haven't specified any such callbacks for this method, the default
+<span class='line'> 42</span>    * callbacks for the current Model object will be used, if available.
+<span class='line'> 43</span>    *
+<span class='line'> 44</span>    * Any additional options will be passed to the jQuery.ajax() function.
+<span class='line'> 45</span>    *
+<span class='line'> 46</span>    * $i.m.MyModel('/items.json', {
+<span class='line'> 47</span>    *   success: function() {
+<span class='line'> 48</span>    *     // Perform some actions when the XHR call is successful
+<span class='line'> 49</span>    *   }
+<span class='line'> 50</span>    * });
+<span class='line'> 51</span>    *
+<span class='line'> 52</span>    * @see http://docs.jquery.com/Ajax/jQuery.ajax
+<span class='line'> 53</span>    *
+<span class='line'> 54</span>    * @param {Object} [options]
+<span class='line'> 55</span>    * @param {Function} options.success Called when the XHR call is successful
+<span class='line'> 56</span>    * @param {Function} options.error Called when the XHR call isn't successful
+<span class='line'> 57</span>    * @param {Function} options.beforeSend Called before starting the XHR transaction
+<span class='line'> 58</span>    * @param {Function} options.complete Called after the XHR call is done, regardless if it is successful or not
+<span class='line'> 59</span>    */</span><span class="WHIT">
+<span class='line'> 60</span> </span><span class="WHIT">  </span><span class="NAME">json</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">url</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 61</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">model</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 62</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">options</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">$.extend</span><span class="PUNC">(</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="WHIT">      </span><span class="NAME">success</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">model.success</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="WHIT">      </span><span class="NAME">error</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">model.error</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="WHIT">      </span><span class="NAME">beforeSend</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">model.beforeSend</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 66</span> </span><span class="WHIT">      </span><span class="NAME">complete</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">model.complete</span><span class="WHIT">
+<span class='line'> 67</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 68</span> </span><span class="WHIT">      </span><span class="NAME">url</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">url</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 69</span> </span><span class="WHIT">      </span><span class="NAME">dataType</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'json'</span><span class="WHIT">
+<span class='line'> 70</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 71</span> 
+<span class='line'> 72</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">$.ajax</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 73</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 74</span> 
+<span class='line'> 75</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 76</span>    * Default success callback for Ajax calls. Overwrite this with your own.
+<span class='line'> 77</span>    * @see jQuery API documentation
+<span class='line'> 78</span>   */</span><span class="WHIT">
+<span class='line'> 79</span> </span><span class="WHIT">  </span><span class="NAME">success</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 80</span> 
+<span class='line'> 81</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 82</span>    * Default error callback for Ajax calls. Overwrite this with your own.
+<span class='line'> 83</span>    * @see jQuery API documentation
+<span class='line'> 84</span>   */</span><span class="WHIT">
+<span class='line'> 85</span> </span><span class="WHIT">  </span><span class="NAME">error</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 86</span> 
+<span class='line'> 87</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 88</span>    * Default beforeSend callback for Ajax calls. Overwrite this with your own.
+<span class='line'> 89</span>    * @see jQuery API documentation
+<span class='line'> 90</span>   */</span><span class="WHIT">
+<span class='line'> 91</span> </span><span class="WHIT">  </span><span class="NAME">beforeSend</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 92</span> 
+<span class='line'> 93</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 94</span>    * Default complete callback for Ajax calls. Overwrite this with your own.
+<span class='line'> 95</span>    * @see jQuery API documentation
+<span class='line'> 96</span>   */</span><span class="WHIT">
+<span class='line'> 97</span> </span><span class="WHIT">  </span><span class="NAME">complete</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 98</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 99</span> 
+<span class='line'>100</span> </span></pre></body></html>
