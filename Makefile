@@ -35,7 +35,11 @@ IGNT = ${DIST_DIR}/ignition.js
 IGNT_MIN = ${DIST_DIR}/ignition.min.js
 IGNT_PACK = ${DIST_DIR}/ignition.pack.js
 
-all: ignition min
+IGNT_V = ${DIST_DIR}/ignition-${VERSION}.js
+IGNT_MIN_V = ${DIST_DIR}/ignition-${VERSION}.min.js
+IGNT_PACK_V = ${DIST_DIR}/ignition-${VERSION}.pack.js
+
+all: ignition min pack rename
 	@@echo "Ignition build complete"
 
 ${DIST_DIR}:
@@ -87,6 +91,15 @@ jsdoc: ${DOCS_DIR}
 
 	@@echo "jsdocs generated"
 	@@echo
+
+
+rename: ignition min pack
+	@@mv ${IGNT} ${IGNT_V}
+	@@echo "Renamed" ${IGNT} "to" ${IGNT_V}
+	@@mv ${IGNT_MIN} ${IGNT_MIN_V}
+	@@echo "Renamed" ${IGNT_MIN} "to" ${IGNT_MIN_V}
+	@@mv ${IGNT_PACK} ${IGNT_PACK_V}
+	@@echo "Renamed" ${IGNT_PACK} "to" ${IGNT_PACK_V}
 
 
 clean:
