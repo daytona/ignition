@@ -9,7 +9,7 @@ Ignition is extendable through "Modules", which in the default distribution incl
 Basic usage
 -----------
 
-Please see the [API documentation](http://www.daytona.se/ignition/docs) for detailed usage.
+Please see the [API documentation](http://daytona.github.com/ignition/) for detailed usage.
 
 Initialize the Ignition object:
 
