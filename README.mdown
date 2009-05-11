@@ -63,6 +63,26 @@ The view will handle the data returned from the model's JSON call, generating DO
     });
 
 
+Building
+--------
+
+You can use the included Makefile to create production-ready files. You need to have Java installed in order for the build scripts to be able to run.
+
+Building the default version (uncompressed + minified):
+
+    make
+
+Compressed with /packer/:
+
+    make pack
+
+Generate documentation files using [jsdoc-toolkit](http://code.google.com/p/jsdoc-toolkit/):
+
+    make jsdoc
+
+The build scripts are adapted from jQuery's ditto.
+
+
 License
 -------
 
