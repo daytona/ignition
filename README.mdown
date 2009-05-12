@@ -1,7 +1,7 @@
 Ignition - JavaScript MVC Framework
 ===================================
 
-Go to http://github.com/daytona/ignition/downloads for downloads.
+Go to [http://github.com/daytona/ignition/downloads](http://github.com/daytona/ignition/downloads) for downloads.
 
 Ignition is a [jQuery](http://jquery.com)-based mini-framework for developing JavaScript applications using the MVC (Model/View/Controller) pattern.
 
